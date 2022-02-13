@@ -1,4 +1,6 @@
-/*class Solution {
+/*
+   //solution using recursion
+class Solution {
     
     private:
     
@@ -28,7 +30,7 @@ public:
     }
 };
 */
-
+//Using Bitwise Method
 class Solution {
 public:
     vector<vector<int>> subsets(vector<int>& nums) {
