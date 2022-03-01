@@ -35,3 +35,23 @@ public:
         return temp;
     }
 };
+
+/*
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        if(head==NULL || head->next==NULL){
+            return head;
+        }
+        ListNode *slow=head;
+        ListNode *fast=head;
+        // to check if last node is pointing to null and second last node is pointing to null
+        while(fast!=NULL && fast->next){
+            fast=fast->next->next;
+            slow=slow->next;
+           
+        }
+        return slow;
+        
+    }
+};*/
