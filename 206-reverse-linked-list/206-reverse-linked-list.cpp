@@ -35,6 +35,8 @@ public:
     }
 };
 */
+
+/*
 void reverse(ListNode* &head,ListNode* curr ,ListNode* prev){
        
        if(curr==NULL){
@@ -58,3 +60,20 @@ public:
         return head;
     }
     };
+    
+    */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        
+     if(head==NULL||head->next==NULL){
+           
+           return head;
+       }
+          ListNode* smallhead=reverseList(head->next);
+          head->next->next=head;
+          head->next=NULL;
+          return smallhead;
+    }
+    };
+    
