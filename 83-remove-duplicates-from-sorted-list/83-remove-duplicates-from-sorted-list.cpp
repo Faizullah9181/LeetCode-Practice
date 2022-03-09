@@ -17,6 +17,7 @@ public:
             if(curr->val==curr->next->val){
                 ListNode *temp=curr->next;
                 curr->next=curr->next->next;
+                delete(temp);
             }
                 else{
                     
