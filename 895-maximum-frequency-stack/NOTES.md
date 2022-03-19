@@ -1,3 +1,4 @@
+/*
 class FreqStack {
 public:
     //This will store the count of each element
@@ -33,6 +34,8 @@ public:
         return top_max_frequency;
     }
 };
+    
+    */
 
 /**
  * Your FreqStack object will be instantiated and called as such:
