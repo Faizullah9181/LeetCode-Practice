@@ -1,4 +1,4 @@
-​class FreqStack {
+class FreqStack {
 public:
     //This will store the count of each element
     unordered_map<int,int> frequency;
