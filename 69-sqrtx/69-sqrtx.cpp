@@ -1,7 +1,7 @@
 class Solution {
 public:
     int mySqrt(int x) {
-        long long int ans = -1;
+        long long int ans = 0;
         int s = 0;
         int e = x;
         long long int m = s + (e-s)/2;
