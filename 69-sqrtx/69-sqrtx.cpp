@@ -15,7 +15,7 @@ public:
                 e = m-1;
             }
             
-            m = s + (e-s)/2;
+             m = s + (e-s)/2;
             
         }
         return ans;
