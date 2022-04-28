@@ -21,7 +21,7 @@ public:
         {
             start = mid + 1;
         }
-        mid = start + (end - start / 2);
+       
     }
     return -1;
     }
