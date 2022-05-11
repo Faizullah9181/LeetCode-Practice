@@ -6,14 +6,14 @@ public:
         
         while(low<=high){
             
-            if(nums[low] % 2 != 0){
+            if(nums[low] % 2 == 0){
                 
-              swap(nums[low],nums[high--]);
+                low ++;
             }
             
             else{
                 
-                low++;
+                swap(nums[low],nums[high--]);
             }
         }
         
