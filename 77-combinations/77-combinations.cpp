@@ -8,9 +8,15 @@ public:
         return;
     }
         
+        
         if (k > n - i + 1)
+            
+            
         return;
-    if (i > n)
+        
+        
+        if (i > n)
+            
         return;
         subset.push_back(i);
         
@@ -24,7 +30,7 @@ public:
         
     }
     vector<vector<int>> combine(int n, int k) {
-        vector<int> subset;
+    vector<int> subset;
     vector<vector<int>> ans;
     help(1, n, k, subset, ans);
     return ans;
