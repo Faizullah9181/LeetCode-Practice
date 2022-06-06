@@ -18,7 +18,7 @@ public:
         while(a != b){
             
             if(a==NULL) a=headB;
-            else
+            else                      //synchronising pointer a to b 
                 a=a->next;
             
             
