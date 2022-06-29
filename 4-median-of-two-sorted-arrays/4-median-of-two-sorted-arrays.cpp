@@ -1,5 +1,5 @@
-class Solution
-{
+class Solution   //O(log n1)
+{    
 public:
     double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2)
     {
