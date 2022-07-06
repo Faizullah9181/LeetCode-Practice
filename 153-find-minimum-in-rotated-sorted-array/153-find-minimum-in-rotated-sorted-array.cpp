@@ -12,7 +12,7 @@ class Solution
 
             if (n == 1) return nums[0];
 
-            if (nums[0] < nums[e])
+            if (nums[0] < nums[e])   //if array is already sorted
                 return nums[0];
 
             while (s < e)
@@ -27,13 +27,10 @@ class Solution
                 else
                 {
 
-                    e = mid ;
+                    e = mid;
                 }
-                
-                
             }
-            
-             return nums[s];
+
+            return nums[s];
         }
-           
-        };
+};
