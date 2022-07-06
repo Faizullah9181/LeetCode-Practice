@@ -11,7 +11,7 @@ class Solution
 
             while (s < e)
             {
-                            int mid = s + (e - s) / 2;
+                int mid = s + (e - s) / 2;
 
                 if (nums[mid] >= nums[0])
                 {
@@ -34,12 +34,11 @@ class Solution
         int start = s;
 
         int end = e;
-        
-        while (s<=e)
-        {
-                int mid = s + (e - s) / 2;
 
-            
+        while (s <= e)
+        {
+            int mid = s + (e - s) / 2;
+
             if (nums[mid] == k)
             {
                 return mid;
