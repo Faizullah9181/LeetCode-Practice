@@ -1,45 +1,35 @@
 /**
  *Definition for a binary tree node.
  *struct TreeNode {
- *int val;
- *TreeNode * left;
- *TreeNode * right;
- *TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ *    int val;
+ *    TreeNode * left;
+ *    TreeNode * right;
+ *    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  *};
  */
 class Solution
 {
     public:
-
-        int maxDepth(TreeNode *root)
+        pair<int, int> solve(TreeNode *root)
         {
-
             if (root == NULL)
+                return make_pair(0, 0);
+            pair<int, int> left = solve(root->left);
+            pair<int, int> right = solve(root->right);
+            int leftDiameter = left.first;
+            int leftHeight = left.second;
+            int rightDiameter = right.first;
+            int rightHeight = right.second;
 
-                return 0;
+            int ht = 1 + max(leftHeight, rightHeight);
+            int diameter = max(leftDiameter, max(rightDiameter, leftHeight + rightHeight));
 
-            int lefth = maxDepth(root->left);
-            int righth = maxDepth(root->right);
-
-            int ans = max(lefth, righth) + 1;
-
-            return ans;
+            return make_pair(diameter, ht);
         }
     int diameterOfBinaryTree(TreeNode *root)
-
     {
-        if (root == NULL) return 0;
-     
-        int s1 = diameterOfBinaryTree(root->left);
-
-        int s2 = diameterOfBinaryTree(root->right);
-    
-        int s3 = maxDepth(root->left)+maxDepth(root->right);
-
-        int ans2 = max(s3, max(s1, s2));
-
-        return ans2;
+        return solve(root).first;
     }
 };
