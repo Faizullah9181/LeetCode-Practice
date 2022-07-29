@@ -25,7 +25,8 @@ class Solution
 
             int size = path.size();
 
-            long long sum = 0;
+           long long
+               sum = 0;
 
             for (int i = size - 1; i >= 0; i--)
             {
@@ -33,8 +34,11 @@ class Solution
                 sum += path[i];
 
                 if (sum == targetSum) count++;
+                
+                
             }
             
+
             
 
 
