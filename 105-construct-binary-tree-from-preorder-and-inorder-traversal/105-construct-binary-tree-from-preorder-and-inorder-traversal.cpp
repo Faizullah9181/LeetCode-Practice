@@ -23,10 +23,19 @@ class Solution
                     return i;
             }
 
-              return -1;
+            return -1;
         }
 
-    TreeNode* solve(vector<int> &preorder, vector<int> &inorder, int &index, int inorderStart, int inorderEnd, int n)
+    void createMapping(vector<int> &inorder, map<int, int> &nodeToindex, int n)
+    {
+
+        for (int i = 0; i < n; i++)
+        {
+            nodeToindex[ inorder[i]] = i;
+        }
+    }
+
+    TreeNode* solve(vector<int> &preorder, vector<int> &inorder, int &index, int inorderStart, int inorderEnd, int n,map<int, int> &nodeToindex)
     {
 
         if (index >= n || inorderStart > inorderEnd) return NULL;
@@ -35,11 +44,13 @@ class Solution
 
         TreeNode *root = new TreeNode(element);
 
-        int position = positionFind(inorder, element, n);
-
-        root->left = solve(preorder, inorder, index, inorderStart, position - 1, n);
-        root->right = solve(preorder, inorder, index, position + 1, inorderEnd, n);
+        // int position = positionFind(inorder, element, n);
         
+        int position =nodeToindex[element];
+
+        root->left = solve(preorder, inorder, index, inorderStart, position - 1, n,nodeToindex);
+        root->right = solve(preorder, inorder, index, position + 1, inorderEnd, n,nodeToindex);
+
         return root;
     }
     TreeNode* buildTree(vector<int> &preorder, vector<int> &inorder)
@@ -48,7 +59,11 @@ class Solution
         int preorderIndex = 0;
         int n = inorder.size();
 
-        TreeNode* ans = solve(preorder, inorder, preorderIndex, 0, n - 1, n);
+        map<int, int> nodeToindex;
+
+        createMapping(inorder, nodeToindex, n);
+
+        TreeNode *ans = solve(preorder, inorder, preorderIndex, 0, n - 1, n,nodeToindex);
 
         return ans;
     }
