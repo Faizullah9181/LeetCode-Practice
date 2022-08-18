@@ -1,42 +1,24 @@
-class Solution
-{
-    public:
-        int minSetSize(vector<int> &arr)
+class Solution {
+public:
+    int minSetSize(vector<int>& arr) {
+     unordered_map<int,int>madar;
+    priority_queue<int>chod;
+        for(int x:arr)
         {
-
-            int n = arr.size();
-            int i;
-            map<int, int> m;
-
-            for (auto it: arr)
-            {
-
-                m[it]++;
-            }
-
-            vector<int> ans;
-
-            for (auto i: m)
-            {
-
-                ans.push_back(i.second);
-            }
-
-            sort(ans.rbegin(), ans.rend());
-
-            int cnt = 0;
-
-            int total = n;
-
-            for (auto i: ans)
-            {
-                if (total <= n / 2)
-                {
-                    break;
-                }
-                cnt++;
-                total -= i;
-            }
-            return cnt;
+            madar[x]++;
         }
+        for(auto x:madar)
+        {
+            chod.push(x.second);
+        }
+        int ans=0,count=0;
+        while(ans<=arr.size()/2-1)
+        {
+            count++;
+            ans+=chod.top();
+            chod.pop();
+            
+        }
+        return count;
+    }
 };
