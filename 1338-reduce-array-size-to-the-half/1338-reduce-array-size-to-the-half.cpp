@@ -22,7 +22,7 @@ class Solution
                 ans.push_back(i.second);
             }
 
-            sort(ans.begin(), ans.end(), greater<int> ());
+            sort(ans.rbegin(), ans.rend());
 
             int cnt = 0;
 
