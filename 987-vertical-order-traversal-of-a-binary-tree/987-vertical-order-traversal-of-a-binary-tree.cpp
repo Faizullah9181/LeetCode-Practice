@@ -50,8 +50,8 @@ class Solution
             {
                 vector<int> vec;
                 for (auto j: i.second)
-                {              sort(j.second.begin(),j.second.end());
-
+                {
+                    sort(j.second.begin(), j.second.end());
 
                     for (auto k: j.second)
                     {
