@@ -12,22 +12,31 @@ class Solution
             {
                 string pt;
                 int i;
-                for (i = 0; i < path.size() && path[i] != ' '; i++)
+                for (i = 0; i < path.size() and path[i] != ' '; i++)
+                {
+
                     pt += path[i];
+                }
                 pt += '/';
                 i++;
 
                 while (i < path.size())
                 {
 
-                    string  file,data;
+                    string data, file;
 
-                    while (i < path.size() && path[i] != '(')
+                    while (i < path.size() and path[i] != '(')
+                    {
+
                         file += path[i++];
-                    while (i < path.size() && path[i] != ' ')
-                        data += path[i++];        
+                    }
+                    while (i < path.size() and path[i] != ' ')
+                    {
+
+                        data += path[i++];
+                    }
                     fp[data].push_back(pt + file);
-                    ++i;
+                    i++;
                 }
             }
 
