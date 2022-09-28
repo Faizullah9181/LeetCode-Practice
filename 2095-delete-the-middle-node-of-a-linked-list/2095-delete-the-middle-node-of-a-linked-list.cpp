@@ -11,32 +11,31 @@
 class Solution
 {
     public:
-        ListNode* deleteMiddle(ListNode *head)
+        int getcount(ListNode *head)
         {
-
             ListNode *temp = head;
-            int size = 0;
-            while (temp)
+            int count = 0;
+            while (temp != NULL )
             {
-                size++;
+                count++;
                 temp = temp->next;
             }
-            if (size == 1)
-                return NULL;
-            int k = (size / 2) + 1;
-
-            cout << k << " ";
-
-            temp = head;
-
-            k -= 2;
-            cout << k << " ";
-
-            while (k--)
-                temp = temp->next;
-
-            temp->next = temp->next->next;
-
-            return head;
+            return count / 2;
         }
+    ListNode* deleteMiddle(ListNode *head)
+    {
+        if (head->next == NULL)
+        {
+            return NULL;
+        }
+        int mid = getcount(head);
+        ListNode *temp = head;
+        for (int i = 0; i < mid - 1; i++)
+        {
+            temp = temp->next;
+        }
+
+        temp->next = temp->next->next;
+        return head;
+    }
 };
