@@ -1,34 +1,41 @@
+class pi
+{
+    public:
+        int val;
+    string s;
+    pi(int val, string s)
+    {
+        this->val = val;
+        this->s = s;
+    }
+    bool operator < (const pi &pi1) const
+    {
+        if (val == pi1.val)
+        {
+            return s.compare(pi1.s) < 0;
+        }
+        return val > pi1.val;
+    }
+};
 class Solution
 {
     public:
         vector<string> topKFrequent(vector<string> &words, int k)
         {
             unordered_map<string, int> mp;
-            for (auto &word: words)
+            for (string &s: words) mp[s]++;
+            priority_queue<pi> pq;
+            for (auto &p: mp)
             {
-                mp[word]++;
+                pq.push(pi(p.second, p.first));
+                if (pq.size() > k) pq.pop();
             }
-
-            vector<pair<string, int>> v;
-            for (auto &it: mp)
+            vector<string> res;
+            while (pq.size())
             {
-                v.push_back(it);
+                res.push_back(pq.top().s), pq.pop();
             }
-
-            sort(v.begin(), v.end(), [](pair<string, int> &a, pair<string, int> &b)
-            {
-                if (a.second == b.second)
-                {
-                    return a.first < b.first;
-                }
-                return a.second > b.second;
-	});
-
-            vector<string> ans;
-            for (int i = 0; i < k; i++)
-            {
-                ans.push_back(v[i].first);
-            }
-            return ans;
+            reverse(res.begin(), res.end());
+            return res;
         }
 };
