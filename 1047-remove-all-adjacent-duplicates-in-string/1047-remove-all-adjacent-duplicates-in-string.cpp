@@ -4,21 +4,14 @@ class Solution
         string removeDuplicates(string s)
         {
 
-            string ans = "";
+            string ans;
 
-            for (auto &i: s)
+            for (int i = 0; i < s.size(); i++)
             {
-
-                if (i == ans.back())
-                {
-
+                if (ans.back() == s[i])
                     ans.pop_back();
-                }
                 else
-                {
-
-                    ans += i;
-                }
+                    ans.push_back(s[i]);
             }
 
             return ans;
