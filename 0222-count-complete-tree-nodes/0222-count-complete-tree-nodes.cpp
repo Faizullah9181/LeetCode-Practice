@@ -17,7 +17,7 @@ class Solution
 
             if (root != NULL)
             {
-                return countNodes(root->left) + countNodes(root->right) + 1;
+                return countNodes(root->left) + countNodes(root->right) + 1 ;
             }
             return 0;
         }
